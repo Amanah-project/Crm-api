@@ -9,6 +9,11 @@ use Throwable;
 
 class ArticleMetadataParser
 {
+    public function empty(string $fallbackUrl): array
+    {
+        return $this->emptyMetadata($fallbackUrl);
+    }
+
     public function parse(string $html, string $fallbackUrl): array
     {
         $document = new DOMDocument();

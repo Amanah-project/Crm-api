@@ -21,14 +21,7 @@ class ResolveArticleAction
         if (empty($html)) {
             return [
                 'status' => 502,
-                'data' => [
-                    'title' => null,
-                    'description' => null,
-                    'author' => null,
-                    'published_at' => null,
-                    'language' => null,
-                    'url' => $url,
-                ],
+                'data' => $this->metadataParser->empty($url),
                 'meta' => [
                     'resolved' => false,
                     'warning' => 'Source page could not be fetched.',
