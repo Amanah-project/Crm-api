@@ -8,6 +8,7 @@ use App\Http\Validation\Article\StoreArticleRequest;
 use App\Http\Validation\Article\UpdateArticleRequest;
 use App\Http\Resources\ArticleFullResource;
 use Amanah\Common\Models\Article;
+use App\Actions\Article\ArchiveAndDeleteArticleAction;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -56,6 +57,13 @@ class ArticleController extends Controller
             default:
                 return $this->handleFullUpdate($request, $article);
         }
+    }
+    
+    public function destroy(Article $article, ArchiveAndDeleteArticleAction $action)
+    {
+        $action->handle($article);
+
+        return response()->noContent();
     }
 
     private function handleFullUpdate(Request $request, Article $article)
