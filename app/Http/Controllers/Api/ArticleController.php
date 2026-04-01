@@ -42,6 +42,11 @@ class ArticleController extends Controller
         return new ArticleFullResource($article);
     }
 
+    public function show(Article $article)
+    {
+        return new ArticleFullResource($article);
+    }
+
     public function update(Request $request, Article $article)
     {
         switch ($request->input('action')) {

@@ -15,7 +15,7 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:255'],
-            'url' => ['required', 'string', 'max:255', 'unique:articles,url'],
+            'url' => ['required', 'string', 'max:255', 'url:http,https', 'unique:articles,url'],
             'load_text' => ['nullable', 'string'],
             'language' => ['nullable', 'string', 'max:5'],
             'type' => ['nullable', 'in:news,analysis,opinion,wiki'],
