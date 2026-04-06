@@ -2,5 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ArticleController;
+use App\Http\Controllers\Api\ArticleResolveController;
 
-Route::get('/articles', [ArticleController::class, 'index']);
+Route::apiResource('articles', ArticleController::class);
+
+Route::apiResource('article-resolves', ArticleResolveController::class)->only(['store']);
