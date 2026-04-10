@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Validation\Article\AcceptArticleActionRequest;
-use App\Http\Validation\Article\StoreArticleRequest;
-use App\Http\Validation\Article\UpdateArticleRequest;
+use App\Http\Requests\Article\AcceptArticleActionRequest;
+use App\Http\Requests\Article\StoreArticleRequest;
+use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Http\Resources\ArticleFullResource;
 use Amanah\Common\Models\Article;
 use App\Actions\Article\ArchiveAndDeleteArticleAction;
