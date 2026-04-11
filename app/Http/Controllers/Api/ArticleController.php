@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
     public function index(Request $request)
     {
         $order = in_array($request->query('order', 'desc'), ['asc', 'desc'], true) 

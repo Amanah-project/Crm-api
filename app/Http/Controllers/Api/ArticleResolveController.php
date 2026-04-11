@@ -9,6 +9,10 @@ use App\Http\Requests\Article\ResolveArticleRequest;
 
 class ArticleResolveController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
     public function store(ResolveArticleRequest $request, ResolveArticleAction $action)
     {
         $result = $action->handle($request->validated('url'));
