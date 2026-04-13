@@ -4,8 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e0568b6ab30fe7aa5de5c97de21fb19",
+    "content-hash": "7cd151523dbe2f5de8e77f97c90dc03c",
     "packages": [
+        {
+            "name": "amanah/common",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../Base",
+                "reference": "bc98cf7522f102472c7404161f2016bf15a99e33"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Amanah\\Common\\Providers\\ApiJsonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Amanah\\Common\\": [
+                        "src/",
+                        "packages/common/src/"
+                    ]
+                }
+            },
+            "description": "Shared common package for Amanah",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
         {
             "name": "brick/math",
             "version": "0.14.8",
@@ -8093,7 +8123,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "amanah/common": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
