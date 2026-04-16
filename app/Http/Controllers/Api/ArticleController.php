@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Validation\Article\AcceptArticleActionRequest;
-use App\Http\Validation\Article\StoreArticleRequest;
-use App\Http\Validation\Article\UpdateArticleRequest;
+use App\Http\Requests\Article\AcceptArticleActionRequest;
+use App\Http\Requests\Article\StoreArticleRequest;
+use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Http\Resources\ArticleFullResource;
 use Amanah\Common\Models\Article;
 use App\Actions\Article\ArchiveAndDeleteArticleAction;
@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
     public function index(Request $request)
     {
         $order = in_array($request->query('order', 'desc'), ['asc', 'desc'], true) 

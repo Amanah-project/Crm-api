@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Actions\Article\ResolveArticleAction;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ArticleResolveResource;
-use App\Http\Validation\Article\ResolveArticleRequest;
+use App\Http\Requests\Article\ResolveArticleRequest;
 
 class ArticleResolveController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
     public function store(ResolveArticleRequest $request, ResolveArticleAction $action)
     {
         $result = $action->handle($request->validated('url'));
